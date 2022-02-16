@@ -82,6 +82,12 @@ if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
   cp -f control.tmpl $BASE_DIR/DEBIAN/control
   sed -i "s/VERSION/$LATEST_VERSION/g" $BASE_DIR/DEBIAN/control
 
+  # Find any existing deb files and delete them.
+  for OLD_DEB in firefox*.deb*
+  do
+    rm -f $OLD_DEB
+  done
+
   DPKG_NAME=firefox_"$LATEST_VERSION"_amd64.deb
 
   # Build Debian package.
