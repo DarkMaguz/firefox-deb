@@ -94,7 +94,7 @@ if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
   dpkg-deb --root-owner-group --build $BASE_DIR $DPKG_NAME
 
   # Clean up.
-  rm -rf $BASE_DIR
+  #rm -rf $BASE_DIR
 
   # Change owner of the new deb file.
   chown $USERID:$GROUPID $DPKG_NAME
