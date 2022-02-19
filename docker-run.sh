@@ -95,6 +95,9 @@ if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
 
   # Clean up.
   rm -rf $BASE_DIR
+
+  # Change owner of the new deb file.
+  chown $USERID:$GROUPID $DPKG_NAME
 else
 	echo "Firefox is up to date: \"$CURRENT_VERSION\""
 fi
